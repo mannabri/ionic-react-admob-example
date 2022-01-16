@@ -56,6 +56,15 @@ useEffect(() => {
   AdMob.initialize({
     requestTrackingAuthorization: true,
   });
+}, []);
+```
+
+This will initialize AdMob for the whole app.
+
+Add the following code snippet in the `Tab1.tsx` file inside of the `Tab1` function body:
+
+```tsx
+useEffect(() => {
   const options: BannerAdOptions = {
     adId: 'ca-app-pub-3940256099942544/2934735716', // demo ad unit id
     adSize: BannerAdSize.BANNER,
@@ -66,7 +75,7 @@ useEffect(() => {
 }, []);
 ```
 
-Make sure to use a demo ad unit from Google. Do not use a real ad unit during development! https://developers.google.com/admob/ios/test-ads
+Important: Do not use a real ad unit id during development! Instead, you can use a demo id from Google: https://developers.google.com/admob/ios/test-ads
 
 Now, it's time to build the native ios project.
 
@@ -78,13 +87,15 @@ Open XCode and run a simulator device to see it in action. It may take a couple 
 
 ![bottom banner app](./images/bottom-banner-initial.png)
 
-Well done, you've created first ad! Obviously, there is more to explore. There are functions to _show_, _hide_, _resume_ and _remove_ and options for the banner _size_ and _position_.
+Well done, you've created your first ad!
 
-Get the example app code in order to play around with the different functions and options.
+Obviously, there is more to explore. There are functions to _show_, _hide_, _resume_ and _remove_ the banner and options for the banner _size_ and _position_.
 
-TODO: Add GIF of example app
+Get the example app code and try out the different possibilities.
 
-Important note:
+TODO: Add example images of different banners
 
-Make sure to follow Google's guidelines on how to place your ads.
+Further Readings:
+
+Google's guidelines on ad placement.
 https://support.google.com/admob/answer/2936217?hl=de&ref_topic=2936214&visit_id=637777030182995119-279234529&rd=1

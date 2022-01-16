@@ -93,9 +93,6 @@ const Tab1: React.FC = () => {
               <IonSelectOption value={BannerAdSize.LARGE_BANNER}>
                 Large Banner
               </IonSelectOption>
-              <IonSelectOption value={BannerAdSize.LARGE_BANNER}>
-                Large Banner
-              </IonSelectOption>
               <IonSelectOption value={BannerAdSize.LEADERBOARD}>
                 Leaderboard
               </IonSelectOption>
