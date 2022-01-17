@@ -3,10 +3,10 @@
 # Content
 
 1. Ionic Project Setup
-2. AdMob plugin Setup
+2. AdMob Plugin Setup
 3. Banner Ad
 4. Interstitial Ad
-5. Reward Video
+5. Reward Video Ad
 
 # 1. Ionic Project Setup
 
@@ -69,20 +69,23 @@ Let's start with a minium setup and create a regular banner at the bottom of the
 Add the following code snippet in the `Tab1.tsx` file inside of the `Tab1` function body:
 
 ```tsx
-useEffect(() => {
+const showBanner = async () => {
   const options: BannerAdOptions = {
-    adId: 'ca-app-pub-3940256099942544/2934735716', // demo ad unit id
+    adId: 'ca-app-pub-3940256099942544/2934735716', // demo ad unit id,
     adSize: BannerAdSize.BANNER,
     position: BannerAdPosition.BOTTOM_CENTER,
     isTesting: true,
   };
-  AdMob.showBanner(options);
+  await AdMob.showBanner(options);
+};
+useEffect(() => {
+  showBanner();
 }, []);
 ```
 
-This will load a demo banner ad from Google and will show it as an overaly on top of any other app content. In a production app, you should reserve a fixed space for any ad.
+This will load a demo banner ad from Google and will show it as an overaly on top of any other app content. In a production app, you should follow [Google's guidelines on ad placement](https://support.google.com/admob/answer/2936217?hl=de&ref_topic=2936214&visit_id=637777030182995119-279234529&rd=1).
 
-Important: Do not use a real ad unit id during development! Instead, you can use a demo id from Google: https://developers.google.com/admob/ios/test-ads
+**Important**: Do not use a real ad unit id during development! Instead, you can get a demo id from Google [here](https://developers.google.com/admob/ios/test-ads).
 
 At this point, it's time to build the native ios project.
 
@@ -100,26 +103,30 @@ Obviously, there is more to explore. There are functions to _show_, _hide_, _res
 
 Get the example app code and try out the different possibilities.
 
-TODO: Add example images of different banners
-
 # 4. Interstitial Ad
 
 Simply add the following code snippet in the `Tab2.tsx` file inside of the `Tab2` function body:
 
 ```tsx
-useEffect(() => {
+const showInterstitial = async () => {
   const options: AdOptions = {
     adId: 'ca-app-pub-3940256099942544/4411468910', // demo ad unit id
     isTesting: true,
   };
-  AdMob.prepareInterstitial(options);
-  AdMob.showInterstitial();
+  await AdMob.prepareInterstitial(options);
+  await AdMob.showInterstitial();
+};
+
+useEffect(() => {
+  showInterstitial();
 }, []);
 ```
 
-This will load a full screen overaly that presents the ad and the possibilty to close it.
+This will load a full screen overlay that presents the ad. It also includes a exit button.
 
 # 5. Reward Video Ad
+
+Simply add the following code snippet in the `Tab3.tsx` file inside of the `Tab3` function body:
 
 ```tsx
 const showRewardVideo = async () => {
@@ -136,9 +143,4 @@ useEffect(() => {
 }, []);
 ```
 
-This will load a full screen overaly that presents the ad and the possibilty to close it.
-
-Further Readings:
-
-Google's guidelines on ad placement.
-https://support.google.com/admob/answer/2936217?hl=de&ref_topic=2936214&visit_id=637777030182995119-279234529&rd=1
+This will load a full screen overlay that presents the ad. It also includes a exit button.

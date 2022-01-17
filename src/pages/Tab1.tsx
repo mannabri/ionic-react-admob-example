@@ -27,7 +27,7 @@ const Tab1: React.FC = () => {
   const [adSize, setAdSize] = useState<BannerAdSize>(BannerAdSize.BANNER);
   const [margin, setMargin] = useState<number>(0);
 
-  const showBanner = (
+  const showBanner = async (
     adSize: BannerAdSize,
     position: BannerAdPosition,
     margin: number
@@ -39,7 +39,7 @@ const Tab1: React.FC = () => {
       margin: margin,
       isTesting: true,
     };
-    AdMob.showBanner(options);
+    await AdMob.showBanner(options);
   };
 
   return (
