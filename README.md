@@ -95,7 +95,7 @@ ionic capacitor build ios
 
 Open XCode and run a simulator device to see it in action. It may take a couple of seconds for the ad to appear.
 
-![bottom banner app](./images/bottom-banner-initial.png)
+![banner](./images/banner.png)
 
 Well done, you've created your first ad!
 
@@ -124,6 +124,8 @@ useEffect(() => {
 
 This will load a full screen overlay that presents the ad. It also includes a exit button.
 
+![interstitial](./images/interstitial.png)
+
 # 5. Reward Video Ad
 
 Simply add the following code snippet in the `Tab3.tsx` file inside of the `Tab3` function body:
@@ -142,5 +144,7 @@ useEffect(() => {
   showRewardVideo();
 }, []);
 ```
+
+![reward](./images/reward.png)
 
 This will load a full screen overlay that presents the ad. It also includes a exit button.
