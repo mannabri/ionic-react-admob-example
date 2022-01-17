@@ -10,13 +10,13 @@ import {
 import './Tab1.css';
 
 const Tab2: React.FC = () => {
-  const showInterstitial = () => {
+  const showInterstitial = async () => {
     const options: AdOptions = {
       adId: 'ca-app-pub-3940256099942544/4411468910', // demo ad unit id
       isTesting: true,
     };
-    AdMob.prepareInterstitial(options);
-    AdMob.showInterstitial();
+    await AdMob.prepareInterstitial(options);
+    await AdMob.showInterstitial();
   };
 
   return (
