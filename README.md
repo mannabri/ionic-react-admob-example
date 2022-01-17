@@ -3,7 +3,8 @@
 # Content
 
 1. Project Setup
-2. Banner
+2. Banner Ad
+3. Interstitial Ad
 
 # 1. Project Setup
 
@@ -45,7 +46,7 @@ and replace [APP_ID] by your AdMob application Id.
 <string>[Why you use NSUserTracking. ex: This identifier will be used to deliver personalized ads to you.]</string>
 ```
 
-# 2. Banner
+# 2. Banner Ad
 
 Let's start with a minium setup and create a regular banner at the bottom of the app.
 
@@ -75,9 +76,11 @@ useEffect(() => {
 }, []);
 ```
 
+This will load a demo banner ad from Google and will show it as an overaly on top of any other app content. In a production app, you should reserve a fixed space for any ad. 
+
 Important: Do not use a real ad unit id during development! Instead, you can use a demo id from Google: https://developers.google.com/admob/ios/test-ads
 
-Now, it's time to build the native ios project.
+At this point, it's time to build the native ios project.
 
 ```
 ionic capacitor build ios
@@ -94,6 +97,25 @@ Obviously, there is more to explore. There are functions to _show_, _hide_, _res
 Get the example app code and try out the different possibilities.
 
 TODO: Add example images of different banners
+
+3. Interstitial Ad
+
+Simply add the following code snippet in the `Tab2.tsx` file inside of the `Tab2` function body:
+
+```tsx
+useEffect(() => {
+  const options: AdOptions = {
+      adId: 'ca-app-pub-3940256099942544/4411468910', // demo ad unit id
+      isTesting: true,
+    };
+    AdMob.prepareInterstitial(options);
+    AdMob.showInterstitial();
+}, []);
+```
+
+This will load a full screen overaly that presents the ad and the possibilty to close it. 
+
+
 
 Further Readings:
 

@@ -1,22 +1,41 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab2.css';
+import { AdMob, AdOptions } from '@capacitor-community/admob';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
+import './Tab1.css';
 
 const Tab2: React.FC = () => {
+  const showInterstitial = () => {
+    const options: AdOptions = {
+      adId: 'ca-app-pub-3940256099942544/4411468910', // demo ad unit id
+      isTesting: true,
+    };
+    AdMob.prepareInterstitial(options);
+    AdMob.showInterstitial();
+  };
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
+          <IonTitle>Interstitial</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
+            <IonTitle size="large">Interstitial</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
+
+        <IonButton expand="block" onClick={showInterstitial}>
+          Show Interstitial
+        </IonButton>
       </IonContent>
     </IonPage>
   );

@@ -1,6 +1,4 @@
-import {
-  AdMob
-} from '@capacitor-community/admob';
+import { AdMob } from '@capacitor-community/admob';
 import {
   IonApp,
   IonIcon,
@@ -8,7 +6,8 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs, setupIonicReact
+  IonTabs,
+  setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 /* Core CSS required for Ionic components to work properly */
@@ -32,10 +31,6 @@ import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 /* Theme variables */
 import './theme/variables.css';
-
-
-
-
 
 setupIonicReact();
 
@@ -71,7 +66,7 @@ const App: React.FC = () => {
             </IonTabButton>
             <IonTabButton tab="tab2" href="/tab2">
               <IonIcon icon={ellipse} />
-              <IonLabel>Tab 2</IonLabel>
+              <IonLabel>Interstitial</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab3" href="/tab3">
               <IonIcon icon={square} />
