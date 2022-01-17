@@ -1,4 +1,4 @@
-import { AdMob, AdOptions, RewardAdOptions } from '@capacitor-community/admob';
+import { AdMob, RewardAdOptions } from '@capacitor-community/admob';
 import {
   IonButton,
   IonContent,
